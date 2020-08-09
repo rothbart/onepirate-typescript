@@ -13,6 +13,7 @@ function RFTextField(props) {
 
   return (
     <TextField
+      size="medium"
       error={Boolean(touched && (error || submitError))}
       {...input}
       {...other}
