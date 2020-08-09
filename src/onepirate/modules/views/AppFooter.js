@@ -126,6 +126,7 @@ export default function AppFooter() {
               Language
             </Typography>
             <TextField
+              size="medium"
               select
               SelectProps={{
                 native: true,

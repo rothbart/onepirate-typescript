@@ -26,7 +26,9 @@ function AppForm(props) {
     <div className={classes.root}>
       <Container maxWidth="sm">
         <Box mt={7} mb={12}>
-          <Paper className={classes.paper}>{children}</Paper>
+          <Paper className={classes.paper} background="light">
+            {children}
+          </Paper>
         </Box>
       </Container>
     </div>
