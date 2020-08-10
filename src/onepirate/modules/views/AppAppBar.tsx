@@ -1,13 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, Theme } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import AppBar from "../components/AppBar";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
 import { Link as RouterLink } from "react-router-dom";
+import { AppBarProps, WithStyles } from "@material-ui/core";
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   title: {
     fontSize: 24,
   },
@@ -36,7 +36,7 @@ const styles = (theme) => ({
   },
 });
 
-function AppAppBar(props) {
+function AppAppBar(props: WithStyles<typeof styles> & AppBarProps) {
   const { classes } = props;
 
   return (
@@ -81,9 +81,5 @@ function AppAppBar(props) {
     </div>
   );
 }
-
-AppAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(AppAppBar);

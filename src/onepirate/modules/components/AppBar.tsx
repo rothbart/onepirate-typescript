@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles, Theme, WithStyles } from "@material-ui/core/styles";
-import MuiAppBar from "@material-ui/core/AppBar";
+import MuiAppBar, { AppBarProps } from "@material-ui/core/AppBar";
 
 const styles = (theme: Theme) => ({
   root: {
@@ -8,7 +8,7 @@ const styles = (theme: Theme) => ({
   },
 });
 
-function AppBar(props: WithStyles<typeof styles>) {
+function AppBar(props: WithStyles<typeof styles> & AppBarProps) {
   return <MuiAppBar elevation={0} position="fixed" {...props} />;
 }
 
