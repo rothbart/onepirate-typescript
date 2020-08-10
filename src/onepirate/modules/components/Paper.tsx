@@ -3,20 +3,14 @@ import clsx from "clsx";
 import MuiPaper, { PaperProps } from "@material-ui/core/Paper";
 import { withStyles, Theme, WithStyles } from "@material-ui/core/styles";
 
-export enum PaperBackground {
-  Light = "light",
-  Main = "main",
-  Dark = "dark",
-}
-
 const styles = (theme: Theme) => ({
-  [backgroundStyleMapping[PaperBackground.Light]]: {
+  [backgroundStyleMapping["light"]]: {
     backgroundColor: theme.palette.secondary.light,
   },
-  [backgroundStyleMapping[PaperBackground.Main]]: {
+  [backgroundStyleMapping["main"]]: {
     backgroundColor: theme.palette.secondary.main,
   },
-  [backgroundStyleMapping[PaperBackground.Dark]]: {
+  [backgroundStyleMapping["dark"]]: {
     backgroundColor: theme.palette.secondary.dark,
   },
   padding: {
@@ -25,14 +19,14 @@ const styles = (theme: Theme) => ({
 });
 
 interface ExtraPaperProps {
-  background: PaperBackground;
-  padding: boolean;
+  background: "light" | "main" | "dark";
+  padding?: boolean;
 }
 
 const backgroundStyleMapping = {
-  [PaperBackground.Light]: "backgroundLight",
-  [PaperBackground.Main]: "backgroundMain",
-  [PaperBackground.Dark]: "backgroundDark",
+  light: "backgroundLight",
+  main: "backgroundMain",
+  dark: "backgroundDark",
 };
 
 function Paper(
@@ -55,5 +49,9 @@ function Paper(
     />
   );
 }
+
+Paper.defaultProps = {
+  padding: false,
+};
 
 export default withStyles(styles)(Paper);

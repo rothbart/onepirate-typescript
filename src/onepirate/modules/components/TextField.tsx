@@ -3,13 +3,6 @@ import clsx from "clsx";
 import { withStyles, WithStyles, createStyles } from "@material-ui/core/styles";
 import MuiTextField, { TextFieldProps } from "@material-ui/core/TextField";
 
-export enum TextFieldSize {
-  Small = "small",
-  Medium = "medium",
-  Large = "large",
-  XLarge = "xlarge",
-}
-
 const styles = (theme: any) =>
   createStyles({
     root: {
@@ -32,22 +25,22 @@ const styles = (theme: any) =>
       },
     },
     disabled: {},
-    [inputSyleMapping[TextFieldSize.Small]]: {
+    [inputSyleMapping["small"]]: {
       fontSize: 14,
       padding: theme.spacing(1),
       width: `calc(100% - ${theme.spacing(2)}px)`,
     },
-    [inputSyleMapping[TextFieldSize.Medium]]: {
+    [inputSyleMapping["medium"]]: {
       fontSize: 16,
       padding: theme.spacing(2),
       width: `calc(100% - ${theme.spacing(4)}px)`,
     },
-    [inputSyleMapping[TextFieldSize.Large]]: {
+    [inputSyleMapping["large"]]: {
       fontSize: 18,
       padding: 22,
       width: `calc(100% - ${22 * 2}px)`,
     },
-    [inputSyleMapping[TextFieldSize.XLarge]]: {
+    [inputSyleMapping["xlarge"]]: {
       fontSize: 20,
       padding: 25,
       width: `calc(100% - ${25 * 2}px)`,
@@ -66,15 +59,15 @@ const styles = (theme: any) =>
   });
 
 interface ExtraTextFieldProps {
-  noBorder: boolean;
-  size: TextFieldSize;
+  noBorder?: boolean;
+  size: "small" | "medium" | "large" | "xlarge";
 }
 
 const inputSyleMapping = {
-  [TextFieldSize.Small]: "inputSizeSmall",
-  [TextFieldSize.Medium]: "inputSizeMedium",
-  [TextFieldSize.Large]: "inputSizeLarge",
-  [TextFieldSize.XLarge]: "inputSizeXlarge",
+  small: "inputSizeSmall",
+  medium: "inputSizeMedium",
+  large: "inputSizeLarge",
+  xlarge: "inputSizeXlarge",
 };
 
 function TextField(
@@ -138,7 +131,8 @@ function TextField(
 }
 
 TextField.defaultProps = {
-  size: TextFieldSize.Medium,
+  size: "medium" as const,
+  noBorder: false,
 };
 
 export default withStyles(styles)(TextField);
