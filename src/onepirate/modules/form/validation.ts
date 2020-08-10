@@ -11,7 +11,7 @@ function isDirty(value: string) {
 export function required(
   requiredFields: string[],
   values: { [index: string]: string }
-) {
+): { [index: string]: string | null } {
   return requiredFields.reduce(
     (fields, field) => ({
       ...fields,

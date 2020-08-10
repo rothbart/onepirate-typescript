@@ -58,9 +58,9 @@ const styles = (theme: any) =>
     },
   });
 
-interface ExtraTextFieldProps {
+export interface OnePirateTextFieldProps extends Omit<TextFieldProps, "size"> {
   noBorder?: boolean;
-  size: "small" | "medium" | "large" | "xlarge";
+  size?: "small" | "medium" | "large" | "xlarge";
 }
 
 const inputSyleMapping = {
@@ -70,11 +70,7 @@ const inputSyleMapping = {
   xlarge: "inputSizeXlarge",
 };
 
-function TextField(
-  props: Omit<TextFieldProps, "size"> &
-    WithStyles<typeof styles> &
-    ExtraTextFieldProps
-) {
+function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
   const {
     classes,
     InputProps = {},
@@ -102,7 +98,7 @@ function TextField(
           root: classes.root,
           input: clsx(
             classes.input,
-            classes[inputSyleMapping[size]],
+            classes[inputSyleMapping[size!]],
             {
               [classes.inputBorder]: !noBorder,
             },

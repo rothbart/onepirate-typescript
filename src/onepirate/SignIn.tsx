@@ -1,10 +1,9 @@
 import withRoot from "./modules/withRoot";
 // --- Post bootstrap -----
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
 import { Field, Form, FormSpy } from "react-final-form";
+import { makeStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
 import Typography from "./modules/components/Typography";
 import AppFooter from "./modules/views/AppFooter";
 import AppAppBar from "./modules/views/AppAppBar";
@@ -28,20 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUp() {
+function SignIn() {
   const classes = useStyles();
   const [sent, setSent] = React.useState(false);
 
-  const validate = (values) => {
-    const errors = required(
-      ["firstName", "lastName", "email", "password"],
-      values
-    );
+  const validate = (values: { [index: string]: string }) => {
+    const errors = required(["email", "password"], values);
 
     if (!errors.email) {
-      const emailError = email(values.email, values);
+      const emailError = email(values.email);
       if (emailError) {
-        errors.email = email(values.email, values);
+        errors.email = email(values.email);
       }
     }
 
@@ -58,11 +54,17 @@ function SignUp() {
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign Up
+            Sign In
           </Typography>
           <Typography variant="body2" align="center">
-            <Link component={RouterLink} to="/sign-in/" underline="always">
-              Already have an account?
+            {"Not a member yet? "}
+            <Link
+              component={RouterLink}
+              to="/sign-up/"
+              align="center"
+              underline="always"
+            >
+              Sign Up here
             </Link>
           </Typography>
         </React.Fragment>
@@ -71,33 +73,11 @@ function SignUp() {
           subscription={{ submitting: true }}
           validate={validate}
         >
-          {({ handleSubmit2, submitting }) => (
+          {({ handleSubmit: handleSubmit2, submitting }) => (
             <form onSubmit={handleSubmit2} className={classes.form} noValidate>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    autoFocus
-                    component={RFTextField}
-                    autoComplete="fname"
-                    fullWidth
-                    label="First name"
-                    name="firstName"
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    component={RFTextField}
-                    autoComplete="lname"
-                    fullWidth
-                    label="Last name"
-                    name="lastName"
-                    required
-                  />
-                </Grid>
-              </Grid>
               <Field
                 autoComplete="email"
+                autoFocus
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
@@ -105,9 +85,11 @@ function SignUp() {
                 margin="normal"
                 name="email"
                 required
+                size="large"
               />
               <Field
                 fullWidth
+                size="large"
                 component={RFTextField}
                 disabled={submitting || sent}
                 required
@@ -129,18 +111,28 @@ function SignUp() {
               <FormButton
                 className={classes.button}
                 disabled={submitting || sent}
+                size="large"
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? "In progress…" : "Sign Up"}
+                {submitting || sent ? "In progress…" : "Sign In"}
               </FormButton>
             </form>
           )}
         </Form>
+        <Typography align="center">
+          <Link
+            underline="always"
+            component={RouterLink}
+            to="/forgot-password/"
+          >
+            Forgot password?
+          </Link>
+        </Typography>
       </AppForm>
       <AppFooter />
     </React.Fragment>
   );
 }
 
-export default withRoot(SignUp);
+export default withRoot(SignIn);

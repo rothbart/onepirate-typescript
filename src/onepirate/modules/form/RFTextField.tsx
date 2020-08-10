@@ -1,18 +1,19 @@
 import React from "react";
-import TextField from "../components/TextField";
-import { TextFieldProps } from "@material-ui/core";
+import TextField, { OnePirateTextFieldProps } from "../components/TextField";
 import { FieldRenderProps } from "react-final-form";
 
 interface RFTextFieldProps {
   meta: {
     error?: string;
     submitError?: string;
-    touched: boolean;
+    touched?: boolean;
   };
   input: FieldRenderProps<string, HTMLInputElement>;
 }
 
-function RFTextField(props: TextFieldProps & RFTextFieldProps) {
+function RFTextField(
+  props: OnePirateTextFieldProps & FieldRenderProps<string, HTMLElement>
+) {
   const {
     autoComplete,
     input,
@@ -23,8 +24,7 @@ function RFTextField(props: TextFieldProps & RFTextFieldProps) {
 
   return (
     <TextField
-      size="medium"
-      error={Boolean(touched && (error || submitError))}
+      error={Boolean(!!touched && (error || submitError))}
       {...input}
       {...other}
       InputProps={{
@@ -33,7 +33,7 @@ function RFTextField(props: TextFieldProps & RFTextFieldProps) {
         },
         ...InputProps,
       }}
-      helperText={touched ? error || submitError : ""}
+      helperText={!!touched ? error || submitError : ""}
     />
   );
 }
