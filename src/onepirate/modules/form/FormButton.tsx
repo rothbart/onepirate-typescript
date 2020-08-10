@@ -1,23 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
-import defer from "./defer";
 import Button from "../components/Button";
+import defer from "./defer";
 
-function FormButton(props) {
+interface FormButtonProps {
+  disabled?: boolean;
+  mounted?: boolean;
+}
+
+function FormButton(props: FormButtonProps) {
   const { disabled, mounted, ...others } = props;
   return (
     <Button
-      disabled={!mounted || disabled}
+      disabled={!mounted || !!disabled}
       type="submit"
       variant="contained"
       {...others}
     />
   );
 }
-
-FormButton.propTypes = {
-  disabled: PropTypes.bool,
-  mounted: PropTypes.bool,
-};
-
 export default defer(FormButton);

@@ -1,8 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TextField from "../components/TextField";
+import { TextFieldProps } from "@material-ui/core";
+import { FieldRenderProps } from "react-final-form";
 
-function RFTextField(props) {
+interface RFTextFieldProps {
+  meta: {
+    error?: string;
+    submitError?: string;
+    touched: boolean;
+  };
+  input: FieldRenderProps<string, HTMLInputElement>;
+}
+
+function RFTextField(props: TextFieldProps & RFTextFieldProps) {
   const {
     autoComplete,
     input,
@@ -27,15 +37,5 @@ function RFTextField(props) {
     />
   );
 }
-
-RFTextField.propTypes = {
-  autoComplete: PropTypes.string,
-  input: PropTypes.object.isRequired,
-  InputProps: PropTypes.object,
-  meta: PropTypes.shape({
-    error: PropTypes.string,
-    touched: PropTypes.bool.isRequired,
-  }).isRequired,
-};
 
 export default RFTextField;
