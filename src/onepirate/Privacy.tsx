@@ -19,6 +19,10 @@ function Privacy() {
       .then((responseText) => setMarkdown(responseText));
   });
 
+  if (!markdown) {
+    return <div />;
+  }
+
   return (
     <React.Fragment>
       <AppAppBar />

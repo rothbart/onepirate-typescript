@@ -7,36 +7,59 @@ import {
 } from "@material-ui/core/styles";
 import MuiTypography, { TypographyProps } from "@material-ui/core/Typography";
 
-export enum TypographyMarkType {
-  Center = "center",
-  Left = "left",
-  None = "none",
-}
+const markSyleMapping: {
+  [index: string]: { [subindex: string]: string };
+} = {
+  center: {
+    h1: "",
+    h2: "markedH2Center",
+    h3: "markedH3Center",
+    h4: "markedH4Center",
+    h5: "",
+    h6: "",
+  },
+  left: {
+    h1: "",
+    h2: "",
+    h3: "",
+    h4: "",
+    h5: "",
+    h6: "markedH6Left",
+  },
+  none: {
+    h1: "",
+    h2: "",
+    h3: "",
+    h4: "",
+    h5: "",
+    h6: "",
+  },
+};
 
 const styles = (theme: Theme) =>
   createStyles({
-    [markSyleMapping[TypographyMarkType.Center]["h2"]]: {
+    [markSyleMapping["center"]["h2"]]: {
       height: 4,
       width: 73,
       display: "block",
       margin: `${theme.spacing(1)}px auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
-    [markSyleMapping[TypographyMarkType.Center]["h3"]]: {
+    [markSyleMapping["center"]["h3"]]: {
       height: 4,
       width: 55,
       display: "block",
       margin: `${theme.spacing(1)}px auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
-    [markSyleMapping[TypographyMarkType.Center]["h4"]]: {
+    [markSyleMapping["center"]["h4"]]: {
       height: 4,
       width: 55,
       display: "block",
       margin: `${theme.spacing(1)}px auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
-    [markSyleMapping[TypographyMarkType.Left]["h6"]]: {
+    [markSyleMapping["left"]["h6"]]: {
       height: 2,
       width: 28,
       display: "block",
@@ -46,7 +69,7 @@ const styles = (theme: Theme) =>
   });
 
 interface ExtraTypographyProps {
-  marked?: TypographyMarkType;
+  marked?: "center" | "left" | "none";
 }
 
 const variantMapping = {
@@ -59,57 +82,24 @@ const variantMapping = {
   subtitle1: "h3",
 };
 
-const markSyleMapping: {
-  [index: string]: { [subindex: string]: string };
-} = {
-  [TypographyMarkType.Center]: {
-    h1: "",
-    h2: "markedH2Center",
-    h3: "markedH3Center",
-    h4: "markedH4Center",
-    h5: "",
-    h6: "",
-  },
-  [TypographyMarkType.Left]: {
-    h1: "",
-    h2: "",
-    h3: "",
-    h4: "",
-    h5: "",
-    h6: "markedH6Left",
-  },
-  [TypographyMarkType.None]: {
-    h1: "",
-    h2: "",
-    h3: "",
-    h4: "",
-    h5: "",
-    h6: "",
-  },
-};
-
 function Typography<C extends React.ElementType>(
   props: TypographyProps<C, { component?: C }> &
     WithStyles<typeof styles> &
     ExtraTypographyProps
 ) {
-  const { children, variant, classes, marked, ...other } = props;
+  const { children, variant, classes, marked = "none", ...other } = props;
 
-  let className = "";
-  if (marked && variant && variant in markSyleMapping[marked]) {
-    className = classes[markSyleMapping[marked][variant]];
+  let markedClassName = "";
+  if (variant && variant in markSyleMapping[marked]) {
+    markedClassName = classes[markSyleMapping[marked][variant]];
   }
 
   return (
     <MuiTypography variantMapping={variantMapping} variant={variant} {...other}>
       {children}
-      {marked ? <span className={className} /> : null}
+      {markedClassName ? <span className={markedClassName} /> : null}
     </MuiTypography>
   );
 }
-
-Typography.defaultProps = {
-  marked: TypographyMarkType.None,
-};
 
 export default withStyles(styles)(Typography);

@@ -19,6 +19,10 @@ function Terms() {
       .then((responseText) => setMarkdown(responseText));
   });
 
+  if (!markdown) {
+    return <div />;
+  }
+
   return (
     <React.Fragment>
       <AppAppBar />

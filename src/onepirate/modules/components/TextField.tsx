@@ -3,6 +3,13 @@ import clsx from "clsx";
 import { withStyles, WithStyles, createStyles } from "@material-ui/core/styles";
 import MuiTextField, { TextFieldProps } from "@material-ui/core/TextField";
 
+const inputSyleMapping = {
+  small: "inputSizeSmall",
+  medium: "inputSizeMedium",
+  large: "inputSizeLarge",
+  xlarge: "inputSizeXlarge",
+};
+
 const styles = (theme: any) =>
   createStyles({
     root: {
@@ -37,8 +44,8 @@ const styles = (theme: any) =>
     },
     [inputSyleMapping["large"]]: {
       fontSize: 18,
-      padding: 22,
-      width: `calc(100% - ${22 * 2}px)`,
+      padding: 20,
+      width: `calc(100% - ${20 * 2}px)`,
     },
     [inputSyleMapping["xlarge"]]: {
       fontSize: 20,
@@ -63,20 +70,13 @@ export interface OnePirateTextFieldProps extends Omit<TextFieldProps, "size"> {
   size?: "small" | "medium" | "large" | "xlarge";
 }
 
-const inputSyleMapping = {
-  small: "inputSizeSmall",
-  medium: "inputSizeMedium",
-  large: "inputSizeLarge",
-  xlarge: "inputSizeXlarge",
-};
-
 function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
   const {
     classes,
     InputProps = {},
     InputLabelProps,
-    noBorder = false,
-    size,
+    noBorder,
+    size = "medium",
     SelectProps,
     ...other
   } = props;
@@ -98,7 +98,7 @@ function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
           root: classes.root,
           input: clsx(
             classes.input,
-            classes[inputSyleMapping[size!]],
+            classes[inputSyleMapping[size]],
             {
               [classes.inputBorder]: !noBorder,
             },
@@ -125,10 +125,5 @@ function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
     />
   );
 }
-
-TextField.defaultProps = {
-  size: "medium" as const,
-  noBorder: false,
-};
 
 export default withStyles(styles)(TextField);

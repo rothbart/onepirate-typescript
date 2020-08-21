@@ -79,9 +79,7 @@ function Snackbar(
           aria-label="close"
           color="inherit"
           className={classes.close}
-          onClick={() => {
-            closeFunc && closeFunc();
-          }}
+          onClick={() => closeFunc && closeFunc()}
         >
           <CloseIcon />
         </IconButton>,
