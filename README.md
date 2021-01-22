@@ -4,7 +4,7 @@ Thanks for stopping by! This project is a Typescript version of the [onepirate t
 
 If you're interested in using the onepirate theme but want to work in Typescript, you've come to the right place :) This work has been [ported to the MUI project](https://github.com/mui-org/material-ui/pull/22295) so it should also be available there at some point.
 
-I made a few additional changes (besides adding CRA):
+I made a few additional changes (besides porting everything to Typescript and adding CRA):
 * Added [react router](https://reactrouter.com/) for navigation
 * Placed all static resources in /public
 * Made some small changes to the way markdown is loaded in Privacy.tsx and Terms.tsx (in my opinion this makes the code a bit more robust/extensible)
