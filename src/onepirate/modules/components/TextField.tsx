@@ -1,7 +1,9 @@
 import React from "react";
 import clsx from "clsx";
-import { withStyles, WithStyles, createStyles } from "@material-ui/core/styles";
-import MuiTextField, { TextFieldProps } from "@material-ui/core/TextField";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import MuiTextField, { TextFieldProps } from "@mui/material/TextField";
 
 const inputSyleMapping = {
   small: "inputSizeSmall",
@@ -35,12 +37,12 @@ const styles = (theme: any) =>
     [inputSyleMapping["small"]]: {
       fontSize: 14,
       padding: theme.spacing(1),
-      width: `calc(100% - ${theme.spacing(2)}px)`,
+      width: `calc(100% - ${theme.spacing(2)})`,
     },
     [inputSyleMapping["medium"]]: {
       fontSize: 16,
       padding: theme.spacing(2),
-      width: `calc(100% - ${theme.spacing(4)}px)`,
+      width: `calc(100% - ${theme.spacing(4)})`,
     },
     [inputSyleMapping["large"]]: {
       fontSize: 18,
@@ -87,7 +89,7 @@ function TextField(props: OnePirateTextFieldProps & WithStyles<typeof styles>) {
   } = InputProps;
 
   const disableUnderline = {
-    disableUnderline: true,
+    disableunderline: "true",
   };
 
   return (

@@ -1,7 +1,10 @@
 import React from "react";
 import clsx from "clsx";
-import MuiPaper, { PaperProps } from "@material-ui/core/Paper";
-import { withStyles, Theme, WithStyles } from "@material-ui/core/styles";
+import MuiPaper, { PaperProps } from "@mui/material/Paper";
+import { Theme } from "@mui/material/styles";
+
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
 
 const backgroundStyleMapping = {
   light: "backgroundLight",

@@ -2,7 +2,7 @@ import withRoot from "./modules/withRoot";
 // --- Post bootstrap -----
 import React from "react";
 import { Field, Form, FormSpy } from "react-final-form";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import Typography from "./modules/components/Typography";
 import AppFooter from "./modules/views/AppFooter";
 import AppAppBar from "./modules/views/AppAppBar";

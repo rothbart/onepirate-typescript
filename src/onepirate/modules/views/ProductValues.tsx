@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  WithStyles,
-} from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import Typography from "../components/Typography";
 
 const styles = (theme: Theme) =>

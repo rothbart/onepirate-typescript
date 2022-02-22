@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  withStyles,
-  WithStyles,
-  createStyles,
-  Theme,
-} from "@material-ui/core/styles";
-import MuiTypography, { TypographyProps } from "@material-ui/core/Typography";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import MuiTypography, { TypographyProps } from "@mui/material/Typography";
 
 const markSyleMapping: {
   [index: string]: { [subindex: string]: string };
@@ -42,21 +40,21 @@ const styles = (theme: Theme) =>
       height: 4,
       width: 73,
       display: "block",
-      margin: `${theme.spacing(1)}px auto 0`,
+      margin: `${theme.spacing(1)} auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
     [markSyleMapping["center"]["h3"]]: {
       height: 4,
       width: 55,
       display: "block",
-      margin: `${theme.spacing(1)}px auto 0`,
+      margin: `${theme.spacing(1)} auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
     [markSyleMapping["center"]["h4"]]: {
       height: 4,
       width: 55,
       display: "block",
-      margin: `${theme.spacing(1)}px auto 0`,
+      margin: `${theme.spacing(1)} auto 0`,
       backgroundColor: theme.palette.secondary.main,
     },
     [markSyleMapping["left"]["h6"]]: {

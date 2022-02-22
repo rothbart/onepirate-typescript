@@ -1,7 +1,9 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import { withStyles, Theme, WithStyles } from "@material-ui/core/styles";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
 import Paper from "../components/Paper";
 
 const styles = (theme: Theme) => ({

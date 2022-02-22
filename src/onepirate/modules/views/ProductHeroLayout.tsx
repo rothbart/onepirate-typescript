@@ -1,12 +1,10 @@
 import React from "react";
 import clsx from "clsx";
-import {
-  withStyles,
-  Theme,
-  WithStyles,
-  createStyles,
-} from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import Container from "@mui/material/Container";
 
 const styles = (theme: Theme) =>
   createStyles({
