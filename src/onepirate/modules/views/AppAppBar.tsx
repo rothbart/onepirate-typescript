@@ -1,11 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import { withStyles, Theme } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
+import { Theme } from "@mui/material/styles";
+import withStyles from '@mui/styles/withStyles';
+import Link from "@mui/material/Link";
 import AppBar from "../components/AppBar";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
 import { Link as RouterLink } from "react-router-dom";
-import { AppBarProps, WithStyles } from "@material-ui/core";
+import { AppBarProps } from "@mui/material";
+
+import { WithStyles } from '@mui/styles';
 
 const styles = (theme: Theme) => ({
   title: {

@@ -1,8 +1,9 @@
 import React from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
-import Container from "@material-ui/core/Container";
+import { Theme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
+import Container from "@mui/material/Container";
 import Typography from "../components/Typography";
 import TextField from "../components/TextField";
 import { Link as RouterLink } from "react-router-dom";
@@ -84,7 +85,7 @@ export default function AppFooter() {
             <Grid
               container
               direction="column"
-              justify="flex-end"
+              justifyContent="flex-end"
               className={classes.iconsWrapper}
               spacing={2}
             >

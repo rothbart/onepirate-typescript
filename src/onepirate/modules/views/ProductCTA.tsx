@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  WithStyles,
-  createStyles,
-} from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
-import Container from "@material-ui/core/Container";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import Grid from "@mui/material/Grid";
+import Hidden from "@mui/material/Hidden";
+import Container from "@mui/material/Container";
 import Typography from "../components/Typography";
 import TextField from "../components/TextField";
 import Snackbar from "../components/Snackbar";
@@ -105,7 +103,7 @@ function ProductCTA(props: WithStyles<typeof styles>) {
           </div>
         </Grid>
         <Grid item xs={12} md={6} className={classes.imagesWrapper}>
-          <Hidden smDown>
+          <Hidden xlDown>
             <div className={classes.imageDots} />
             <img
               src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750&q=80"

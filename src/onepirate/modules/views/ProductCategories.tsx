@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  WithStyles,
-  createStyles,
-} from "@material-ui/core/styles";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Container from "@material-ui/core/Container";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import ButtonBase from "@mui/material/ButtonBase";
+import Container from "@mui/material/Container";
 import Typography from "../components/Typography";
 
 const styles = (theme: Theme) =>
@@ -26,7 +24,7 @@ const styles = (theme: Theme) =>
       padding: 0,
       borderRadius: 0,
       height: "40vh",
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down('xl')]: {
         width: "100% !important",
         height: 100,
       },
@@ -75,7 +73,7 @@ const styles = (theme: Theme) =>
     },
     imageTitle: {
       position: "relative",
-      padding: `${theme.spacing(2)}px ${theme.spacing(4)}px 14px`,
+      padding: `${theme.spacing(2)} ${theme.spacing(4)} 14px`,
     },
     imageMarked: {
       height: 3,

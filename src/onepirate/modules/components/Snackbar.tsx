@@ -1,16 +1,13 @@
 import React from "react";
-import {
-  withStyles,
-  WithStyles,
-  createStyles,
-  Theme,
-} from "@material-ui/core/styles";
-import MuiSnackbar, { SnackbarProps } from "@material-ui/core/Snackbar";
-import Slide from "@material-ui/core/Slide";
-import CloseIcon from "@material-ui/icons/Close";
-import InfoIcon from "@material-ui/icons/Info";
-import IconButton from "@material-ui/core/IconButton";
-import { TransitionProps } from "@material-ui/core/transitions/transition";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
+import MuiSnackbar, { SnackbarProps } from "@mui/material/Snackbar";
+import Slide from "@mui/material/Slide";
+import CloseIcon from "@mui/icons-material/Close";
+import InfoIcon from "@mui/icons-material/Info";
+import IconButton from "@mui/material/IconButton";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -42,7 +39,7 @@ const styles = (theme: Theme) =>
     },
   });
 
-function Transition(props: TransitionProps) {
+function Transition(props: any) {
   return <Slide {...props} direction="down" />;
 }
 
@@ -80,7 +77,7 @@ function Snackbar(
           color="inherit"
           className={classes.close}
           onClick={() => closeFunc && closeFunc()}
-        >
+          size="large">
           <CloseIcon />
         </IconButton>,
       ]}

@@ -1,9 +1,9 @@
 import withRoot from "./modules/withRoot";
 // --- Post bootstrap -----
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
+import makeStyles from '@mui/styles/makeStyles';
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import { Field, Form, FormSpy } from "react-final-form";
 import Typography from "./modules/components/Typography";
 import AppFooter from "./modules/views/AppFooter";

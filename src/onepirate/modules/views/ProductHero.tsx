@@ -1,10 +1,8 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  WithStyles,
-  createStyles,
-} from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+import { WithStyles } from '@mui/styles';
+import withStyles from '@mui/styles/withStyles';
+import createStyles from '@mui/styles/createStyles';
 import Button from "../components/Button";
 import Typography from "../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
