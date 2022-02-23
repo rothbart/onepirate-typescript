@@ -3,29 +3,10 @@ import { ThemeProvider, Theme, StyledEngineProvider } from "@mui/material/styles
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./theme";
 
-
-
-
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
-
-
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
-
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
 
 export default function withRoot<P>(Component: React.ComponentType<P>) {
   function WithRoot(props: P) {

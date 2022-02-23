@@ -4,7 +4,7 @@ import { WithStyles } from '@mui/styles';
 import withStyles from '@mui/styles/withStyles';
 import createStyles from '@mui/styles/createStyles';
 import MuiSnackbar, { SnackbarProps } from "@mui/material/Snackbar";
-import Slide from "@mui/material/Slide";
+import Slide, { SlideProps } from "@mui/material/Slide";
 import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
@@ -39,7 +39,7 @@ const styles = (theme: Theme) =>
     },
   });
 
-function Transition(props: any) {
+function SlideTransition(props: SlideProps) {
   return <Slide {...props} direction="down" />;
 }
 
@@ -56,7 +56,7 @@ function Snackbar(
     <MuiSnackbar
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={6000}
-      TransitionComponent={Transition}
+      TransitionComponent={SlideTransition}
       ContentProps={{
         classes: {
           root: classes.content,
