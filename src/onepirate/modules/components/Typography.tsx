@@ -1,11 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { Theme } from "@mui/material/styles";
-import { WithStyles } from '@mui/styles';
-import withStyles from '@mui/styles/withStyles';
-import createStyles from '@mui/styles/createStyles';
+import { withStyles, WithStyles } from "@mui/styles";
 import MuiTypography, { TypographyProps } from "@mui/material/Typography";
 
-const markSyleMapping: {
+const markStyleMapping: {
   [index: string]: { [subindex: string]: string };
 } = {
   center: {
@@ -34,37 +32,36 @@ const markSyleMapping: {
   },
 };
 
-const styles = (theme: Theme) =>
-  createStyles({
-    [markSyleMapping["center"]["h2"]]: {
-      height: 4,
-      width: 73,
-      display: "block",
-      margin: `${theme.spacing(1)} auto 0`,
-      backgroundColor: theme.palette.secondary.main,
-    },
-    [markSyleMapping["center"]["h3"]]: {
-      height: 4,
-      width: 55,
-      display: "block",
-      margin: `${theme.spacing(1)} auto 0`,
-      backgroundColor: theme.palette.secondary.main,
-    },
-    [markSyleMapping["center"]["h4"]]: {
-      height: 4,
-      width: 55,
-      display: "block",
-      margin: `${theme.spacing(1)} auto 0`,
-      backgroundColor: theme.palette.secondary.main,
-    },
-    [markSyleMapping["left"]["h6"]]: {
-      height: 2,
-      width: 28,
-      display: "block",
-      marginTop: theme.spacing(0.5),
-      background: "currentColor",
-    },
-  });
+const styles = (theme: Theme) => ({
+  [markStyleMapping.center.h2]: {
+    height: 4,
+    width: 73,
+    display: "block",
+    margin: `${theme.spacing(1)} auto 0`,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  [markStyleMapping.center.h3]: {
+    height: 4,
+    width: 55,
+    display: "block",
+    margin: `${theme.spacing(1)} auto 0`,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  [markStyleMapping.center.h4]: {
+    height: 4,
+    width: 55,
+    display: "block",
+    margin: `${theme.spacing(1)} auto 0`,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  [markStyleMapping.left.h6]: {
+    height: 2,
+    width: 28,
+    display: "block",
+    marginTop: theme.spacing(0.5),
+    background: "currentColor",
+  },
+});
 
 interface ExtraTypographyProps {
   marked?: "center" | "left" | "none";
@@ -88,8 +85,8 @@ function Typography<C extends React.ElementType>(
   const { children, variant, classes, marked = "none", ...other } = props;
 
   let markedClassName = "";
-  if (variant && variant in markSyleMapping[marked]) {
-    markedClassName = classes[markSyleMapping[marked][variant]];
+  if (variant && variant in markStyleMapping[marked]) {
+    markedClassName = classes[markStyleMapping[marked][variant]];
   }
 
   return (
