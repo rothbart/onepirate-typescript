@@ -1,16 +1,15 @@
-import React from "react";
+import * as React from "react";
 import { Theme } from "@mui/material/styles";
-import { WithStyles } from '@mui/styles';
-import withStyles from '@mui/styles/withStyles';
-import createStyles from '@mui/styles/createStyles';
+import { withStyles, WithStyles } from "@mui/styles";
 import MuiSnackbar, { SnackbarProps } from "@mui/material/Snackbar";
 import Slide from "@mui/material/Slide";
 import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
+import { TransitionProps } from "@mui/material/transitions/transition";
 
 const styles = (theme: Theme) =>
-  createStyles({
+  ({
     content: {
       backgroundColor: theme.palette.secondary.light,
       color: theme.palette.text.primary,
@@ -37,9 +36,11 @@ const styles = (theme: Theme) =>
     close: {
       padding: theme.spacing(1),
     },
-  });
+  } as const);
 
-function Transition(props: any) {
+function Transition(
+  props: TransitionProps & { children: React.ReactElement<any, any> }
+) {
   return <Slide {...props} direction="down" />;
 }
 
@@ -77,7 +78,7 @@ function Snackbar(
           color="inherit"
           className={classes.close}
           onClick={() => closeFunc && closeFunc()}
-          size="large">
+        >
           <CloseIcon />
         </IconButton>,
       ]}

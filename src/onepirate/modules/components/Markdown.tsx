@@ -1,47 +1,44 @@
-import React from "react";
+import * as React from "react";
 import ReactMarkdown from "markdown-to-jsx";
 import { Theme } from "@mui/material/styles";
-import { WithStyles } from '@mui/styles';
-import createStyles from '@mui/styles/createStyles';
-import withStyles from '@mui/styles/withStyles';
-import Typography, { TypographyProps } from "@mui/material/Typography";
+import { withStyles, WithStyles } from "@mui/styles";
+import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
-const styles = (theme: Theme) =>
-  createStyles({
-    listItem: {
-      marginTop: theme.spacing(1),
-    },
-  });
+const styles = (theme: Theme) => ({
+  listItem: {
+    marginTop: theme.spacing(1),
+  },
+});
 
 const options = {
   overrides: {
     h1: {
-      component: (props: TypographyProps) => (
-        <Typography gutterBottom variant="h4" {...props} />
-      ),
+      component: Typography,
+      props: {
+        gutterBottom: true,
+        variant: "h4",
+      },
     },
     h2: {
-      component: (props: TypographyProps) => (
-        <Typography gutterBottom variant="h6" {...props} />
-      ),
+      component: Typography,
+      props: { gutterBottom: true, variant: "h6" },
     },
     h3: {
-      component: (props: TypographyProps) => (
-        <Typography gutterBottom variant="subtitle1" {...props} />
-      ),
+      component: Typography,
+      props: { gutterBottom: true, variant: "subtitle1" },
     },
     h4: {
-      component: (props: TypographyProps) => {
-        return (
-          <Typography gutterBottom variant="caption" paragraph {...props} />
-        );
+      component: Typography,
+      props: {
+        gutterBottom: true,
+        variant: "caption",
+        paragraph: true,
       },
     },
     p: {
-      component: (props: TypographyProps) => (
-        <Typography paragraph {...props} />
-      ),
+      component: Typography,
+      props: { paragraph: true },
     },
     a: { component: Link },
     li: {
@@ -57,8 +54,6 @@ const options = {
   },
 };
 
-function Markdown(props: any) {
+export default function Markdown(props: any) {
   return <ReactMarkdown options={options} {...props} />;
 }
-
-export default Markdown;
